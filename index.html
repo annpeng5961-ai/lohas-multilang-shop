@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>樂活速食坊 LOHAS Fast Food</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="#top" class="logo"><img src="images/logo.webp" alt="樂活速食坊"></a>
+    <nav id="nav" class="nav">
+      <a href="#about" data-i18n="navAbout"></a>
+      <a href="#brands" data-i18n="navBrands"></a>
+      <a href="#products" data-i18n="navProducts"></a>
+      <a href="#news" data-i18n="navNews"></a>
+      <a href="#cases" data-i18n="navCases"></a>
+      <a href="#contact" data-i18n="navContact"></a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="zh">繁體中文</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+      </select>
+      <button id="cartBtn" class="cart-btn" aria-label="Cart">🛒 <span id="cartCount">0</span></button>
+      <button id="menuBtn" class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-i18n="heroTitle"></h1>
+      <p data-i18n="heroSub"></p>
+      <a href="#products" class="btn" data-i18n="heroBtn"></a>
+    </div>
+  </section>
+
+  <section id="about" class="wrap section">
+    <h2 data-i18n="navAbout"></h2>
+    <p class="lead" data-i18n="aboutText"></p>
+    <h3 data-i18n="valuesTitle"></h3>
+    <div class="grid values" id="values"></div>
+  </section>
+
+  <section id="brands" class="band">
+    <div class="wrap section">
+      <h2 data-i18n="navBrands"></h2>
+      <div class="grid" id="brandList"></div>
+    </div>
+  </section>
+
+  <section id="products" class="wrap section">
+    <h2 data-i18n="navProducts"></h2>
+    <div class="filters" id="filters"></div>
+    <div class="grid products" id="productList"></div>
+  </section>
+
+  <section id="news" class="band">
+    <div class="wrap section">
+      <h2 data-i18n="navNews"></h2>
+      <ul class="news" id="newsList"></ul>
+    </div>
+  </section>
+
+  <section id="cases" class="wrap section">
+    <h2 data-i18n="navCases"></h2>
+    <div class="grid" id="caseList"></div>
+  </section>
+
+  <section id="contact" class="band">
+    <div class="wrap section two">
+      <div>
+        <h2 data-i18n="navContact"></h2>
+        <p><strong data-i18n="company"></strong></p>
+        <p>📞 02-2882-1234</p>
+        <p>📠 02-2883-1663</p>
+        <p>📍 <span data-i18n="address"></span></p>
+        <p>✉️ lohasff@gmail.com</p>
+      </div>
+      <form id="contactForm" class="form">
+        <label><span data-i18n="fName"></span><input name="name" required></label>
+        <label><span data-i18n="fEmail"></span><input name="email" type="email" required></label>
+        <label><span data-i18n="fMsg"></span><textarea name="msg" rows="4" required></textarea></label>
+        <button class="btn" data-i18n="fSend"></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>© 2024 <span data-i18n="company"></span></p>
+    <p class="small" data-i18n="browserTip"></p>
+  </div>
+</footer>
+
+<!-- 購物車側欄 -->
+<div id="overlay" class="overlay"></div>
+<aside id="cart" class="cart" aria-hidden="true">
+  <div class="cart-head">
+    <h2 data-i18n="cartTitle"></h2>
+    <button id="cartClose" aria-label="Close">✕</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="total"><span data-i18n="subtotal"></span><strong id="cartTotal">NT$0</strong></div>
+    <button id="checkoutBtn" class="btn full" data-i18n="checkout"></button>
+  </div>
+</aside>
+
+<!-- 結帳視窗 -->
+<div id="modal" class="modal" aria-hidden="true">
+  <form id="orderForm" class="modal-box form">
+    <h2 data-i18n="checkout"></h2>
+    <label><span data-i18n="fName"></span><input name="name" required></label>
+    <label><span data-i18n="fPhone"></span><input name="phone" required></label>
+    <label><span data-i18n="fEmail"></span><input name="email" type="email" required></label>
+    <label><span data-i18n="fAddr"></span><input name="addr" required></label>
+    <p class="total"><span data-i18n="subtotal"></span> <strong id="orderTotal"></strong></p>
+    <p class="note" data-i18n="demoCheckout"></p>
+    <div class="row">
+      <button type="button" id="modalCancel" class="btn ghost" data-i18n="cancel"></button>
+      <button class="btn" data-i18n="placeOrder"></button>
+    </div>
+  </form>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
